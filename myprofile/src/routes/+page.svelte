@@ -91,6 +91,25 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
+   
+      /* floating animatie op mobiel dezd moet ik nog laten werken */
+      animation: floating 4s ease-in-out infinite,
+      character-fade-move linear forwards;
+      animation-timeline: scroll();
+    }
+  
+    @keyframes floating {
+      0% {
+        transform: translate(-50%, -50%) translateY(0) scale(1);
+      }
+      50% {
+        transform: translate(-50%, -50%) translateY(-15px) scale(1.02);
+      }
+      100% {
+        transform: translate(-50%, -50%) translateY(0) scale(1);
+      }
+    }
+  
     .content {
       max-width: 600px;
       padding: 2rem;
