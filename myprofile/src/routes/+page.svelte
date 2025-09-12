@@ -115,3 +115,61 @@
       padding: 2rem;
       line-height: 1.6;
     }
+  
+    @media (min-width: 700px) {
+      .wrapper {
+        display: grid;
+        grid-template-columns: minmax(380px, 600px) 1fr;
+        align-items: center;
+        min-height: 100vh;
+        gap: 2rem;
+        max-width: 1100px;
+        margin: 0 auto;
+        position: relative;
+      }
+  
+      .content {
+        margin: 0;
+        align-self: center;
+        justify-self: start;
+        max-width: 50ch;
+        font-size: large;
+      }
+  
+      .name-img {
+        width: 700px;
+      }
+  
+      .character {
+        position: fixed;
+        inset: 0;
+        z-index: 12;
+      }
+  
+      .character-img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 250px;
+        height: auto;
+        transform: translate(-50%, -50%) scale(1);
+  
+        /* scroll animatie naar rechts en omlaag */
+        animation: to-right-desktop linear forwards;
+        animation-timeline: scroll();
+        animation-range: 0vh 70vh;
+      }
+  
+      @keyframes to-right-desktop {
+        from {
+          transform: translate(-50%, -50%) scale(1);
+          opacity: 1;
+        }
+        to {
+          transform: translate(calc(40vw - 250px - 10vw), -30vh) scale(0.9);
+          opacity: 1;
+        }
+      }
+    }
+  </style>
+  
