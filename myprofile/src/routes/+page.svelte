@@ -24,6 +24,39 @@
       </p>
     </section>
 </div>
+  
+  <style>
+    @keyframes header-shrink {
+      from {
+        height: 100vh;
+        background-position: 50% 0%;
+      }
+      to {
+        height: 12vh;
+        background-position: 50% 100%;
+      }
+    }
+  
+    @keyframes name-scale {
+      from {
+        transform: translate(-50%, -50%) scale(1);
+      }
+      to {
+        transform: translate(-50%, -45%) scale(0.3);
+      }
+    }
+  
+    @keyframes character-fade-move {
+      from {
+        opacity: 1;
+        transform: translate(-50%, -50%) translateY(0) scale(1);
+      }
+      to {
+        opacity: 1;
+        transform: translate(-50%, -70%) scale(0.9);
+      }
+    }
+  
     #sticky-name {
       position: fixed;
       inset: 0 0 auto 0;
@@ -39,6 +72,14 @@
       top: 50%;
       left: 50%;
       height: auto;
+      transform: translate(-50%, -50%) scale(1);
+     
+      /* scrol animatie van de naam */
+      animation: name-scale linear forwards;
+      animation-timeline: scroll();
+      animation-range: 0vh;
+    }
+  
     .character {
       position: fixed;
       inset: 0;
@@ -49,6 +90,7 @@
       position: absolute;
       top: 50%;
       left: 50%;
+      transform: translate(-50%, -50%);
     .content {
       max-width: 600px;
       padding: 2rem;
