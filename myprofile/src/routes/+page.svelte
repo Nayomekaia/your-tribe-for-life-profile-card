@@ -24,3 +24,33 @@
       </p>
     </section>
 </div>
+    #sticky-name {
+      position: fixed;
+      inset: 0 0 auto 0;
+    
+      /* scroll animatie van header */
+      animation: header-shrink linear forwards;
+      animation-timeline: scroll();
+      animation-range: 0vh;
+    }
+  
+    .name-img {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      height: auto;
+    .character {
+      position: fixed;
+      inset: 0;
+     
+    }
+  
+    .character-img {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+    .content {
+      max-width: 600px;
+      padding: 2rem;
+      line-height: 1.6;
+    }
