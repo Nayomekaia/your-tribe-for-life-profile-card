@@ -1,50 +1,29 @@
 <section id="sticky-name">
-  <img class="name-img" src="/images/name.png" alt="Naam" width="430" height="400" loading="lazy" />
+    <img class="name-img" src="/images/name.png" alt="Naam" width="430" height="400" loading="lazy" />
 </section>
-
-<section class="srollabel">
-  <p style="height:200vh">Scroll om meer informatie te krijgen</p>
-</section>
-
-<div class="wrapper">
-  <section class="character">
-    <img class="character-img" src="/images/character.png" alt="Character" width="150" height="300" loading="lazy" />
+  
+  <section class="srollabel">
+    <p style="height:200vh">Scroll om het effect te zien…</p>
   </section>
-
-  <section class="content">
-    <p>I'm</p>
-    <h2>Nayome Kaia</h2>
-
-    <article>
-    <p>I'm 21 years old</p>
-    <p>Front end developer and designer</p>
-    <p>Blending art with technology</p>
-    <p>Passionate about movement & animation</p>
-  </article>
-
-    <ul class="skills">
-      <li>HTML</li>
-      <li>CSS</li>
-      <li>JavaScript</li>
-      <li>Node.js</li>
-      <li>Liquid</li>
-      <li>JSON</li>
-      <li>Figma</li>
-      <li>SvelteKit</li>
-    </ul>
-
-    <section class="social-icons">
-      <a href="https://github.com/Nayomekaia">
-        <img src="/images/github.png" alt="GitHub" />
-      </a>
-      <a href="https://www.linkedin.com/in/nayome-doelwijt-2370172a5/">
-        <img src="/images/linkedin.png" alt="LinkedIn" />
-      </a>
+  
+  <div class="wrapper">
+    <section class="character">
+      <img class="character-img" src="/images/character.png" alt="Character" width="150" height="300" loading="lazy" />
     </section>
-    
-  </section>
+  
+    <section class="content">
+      <h2>WHO AM I?</h2>
+      <p>
+        Hi, I’m Nayome Kaia, 21 years old. I’m a Front-End Developer & Designer
+        with a passion for mixing art, creativity, and technology.
+      </p>
+      <p>
+        I love experimenting with CSS, animation, and interactive design to make
+        websites feel alive and fun. For me, coding isn’t just technical—it’s a
+        way to create experiences that people can feel.
+      </p>
+    </section>
 </div>
-
 <style>
 .srollabel p {
   font-size: 1rem;
