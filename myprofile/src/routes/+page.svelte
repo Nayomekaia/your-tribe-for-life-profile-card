@@ -24,111 +24,153 @@
       </p>
     </section>
 </div>
-  inset: 0;
-  pointer-events: none;
-}
-
-.character-img {
-  position: absolute;
-  top: 50%;
-  left: 50%;
- 
-  transform: translate(-50%, -50%);
-
-  /* 1) eerst de time-based float, daarna de scroll-anim */
-  animation: 
-    floating 4s ease-in-out infinite,
-    character-fade-move linear forwards;
-
-  /* 2) geef ze aparte timelines: time (auto) + scroll */
-  animation-timeline: auto, scroll();
-
-  /* 3) optioneel: range alleen voor de scroll-anim */
-  animation-range: initial, 0vh 70vh;
-
-  pointer-events: none;
-}
-
-@keyframes floating {
-  0%   { translate: 0 0; }
-  50%  { translate: 0 -15px; }
-  100% { translate: 0 0; }
-}
-
-@keyframes character-fade-move {
-  from { opacity: 1; transform: translate(-50%, -50%) scale(1); }
-  to   { opacity: 0; transform: translate(-50%, -70%) scale(0.9); }
-}
-
-
-  .content {
-  position: relative;
-  z-index: 30;
-  max-width: 600px;
-  margin: 0 auto;              
-  padding: 2rem 1.5rem;
-  text-align: center;          
-  line-height: 1.3;            
-  display: flex;               
-  flex-direction: column;
-  justify-content: center;
-  min-height: 100vh;       
-  }    
-
-.content h2 {
-  margin: 0.5rem 0;           
-}
-
-.content p {
-  margin: 0.3rem 0;           
-}
-
-.skills {
-  justify-content: center;    
-}
-
-.skills li {
-  margin: 0.2rem 0;           
-}
-
-  @media (min-width: 700px) {
-    .wrapper {
-      display: grid;
-      grid-template-columns: minmax(380px, 600px) 1fr;
-      align-items: center;
-      min-height: 100vh;
-      gap: 2rem;
-      max-width: 1100px;
-      margin: 0 auto;
-      position: relative;
+  
+  <style>
+    @keyframes header-shrink {
+      from {
+        height: 100vh;
+        background-position: 50% 0%;
+      }
+      to {
+        height: 12vh;
+        background-position: 50% 100%;
+      }
     }
-    .content {
-      margin: 0;
-      align-self: center;
-      justify-self: start;
-      max-width: 50ch;
-      font-size: large;
+  
+    @keyframes name-scale {
+      from {
+        transform: translate(-50%, -50%) scale(1);
+      }
+      to {
+        transform: translate(-50%, -45%) scale(0.3);
+      }
     }
+  
+    @keyframes character-fade-move {
+      from {
+        opacity: 1;
+        transform: translate(-50%, -50%) translateY(0) scale(1);
+      }
+      to {
+        opacity: 1;
+        transform: translate(-50%, -70%) scale(0.9);
+      }
+    }
+  
+    #sticky-name {
+      position: fixed;
+      inset: 0 0 auto 0;
+    
+  
+      animation: header-shrink linear forwards;
+      animation-timeline: scroll();
+      animation-range: 0vh;
+    }
+  
+    .name-img {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      height: auto;
+      transform: translate(-50%, -50%) scale(1);
+     
+     
+    
+      animation: name-scale linear forwards;
+      animation-timeline: scroll();
+      animation-range: 0vh;
+    }
+  
+    .character {
+      position: fixed;
+      inset: 0;
+     
+    }
+  
     .character-img {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 250px;
-  height: auto;
-  pointer-events: none;
-  transform: translate(-50%, -50%) scale(1);
-
-  /* 1) beide animaties in één declaration */
-  animation: 
-    floating 4s ease-in-out infinite,
-    to-right-desktop linear forwards;
-
-  /* 2) aparte timelines per animatie: tijd + scroll */
-  animation-timeline: auto, scroll();
-
-  /* 3) optioneel: alleen range voor de scroll-anim */
-  animation-range: initial, 0vh 70vh;
-}
-
-}
-</style>
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+   
+   
+      animation: floating 4s ease-in-out infinite,
+      character-fade-move linear forwards;
+      animation-timeline: scroll();
+    }
+  
+    @keyframes floating {
+      0% {
+        transform: translate(-50%, -50%) translateY(0) scale(1);
+      }
+      50% {
+        transform: translate(-50%, -50%) translateY(-15px) scale(1.02);
+      }
+      100% {
+        transform: translate(-50%, -50%) translateY(0) scale(1);
+      }
+    }
+  
+    .content {
+      max-width: 600px;
+      padding: 2rem;
+      line-height: 1.6;
+    }
+  
+    @media (min-width: 700px) {
+      .wrapper {
+        display: grid;
+        grid-template-columns: minmax(380px, 600px) 1fr;
+        align-items: center;
+        min-height: 100vh;
+        gap: 2rem;
+        max-width: 1100px;
+        margin: 0 auto;
+        position: relative;
+      }
+  
+      .content {
+        margin: 0;
+        align-self: center;
+        justify-self: start;
+        max-width: 50ch;
+        font-size: large;
+      }
+  
+      .name-img {
+        width: 700px;
+      }
+  
+      .character {
+        position: fixed;
+        inset: 0;
+        z-index: 12;
+      }
+  
+      .character-img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 250px;
+        height: auto;
+        transform: translate(-50%, -50%) scale(1);
+  
+      
+        animation: to-right-desktop linear forwards;
+        animation-timeline: scroll();
+        animation-range: 0vh 70vh;
+      }
+  
+      @keyframes to-right-desktop {
+        from {
+          transform: translate(-50%, -50%) scale(1);
+          opacity: 1;
+        }
+        to {
+          transform: translate(calc(40vw - 250px - 10vw), -30vh) scale(0.9);
+          opacity: 1;
+        }
+      }
+    }
+  </style>
+  
